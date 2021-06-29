@@ -1,14 +1,18 @@
 var ball;
 var d;
 var p 
+var n
+function preload() {
+    n=loadImage("pencil.png")
+}
 function setup(){
     d=firebase.database();
     var ballpos =d.ref('ball/pos');
     ballpos.on("value",readPos,showError)
     createCanvas(500,500);
     ball = createSprite(250,250,10,10);
-  
-    ball.shapeColor = "red";
+ball.addImage(n)
+ball.scale=0.2
 }
 
 function draw(){
